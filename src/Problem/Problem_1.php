@@ -2,6 +2,8 @@
 
 namespace Project\Problem;
 
+require 'iProblem.php';
+var_dump('OKOKOKOK');
 class Problem_1 implements iProblem
 {
     /**
@@ -9,7 +11,7 @@ class Problem_1 implements iProblem
      */
     public function getProblemArgs($problemNumber): void
     {
-        // TODO: Implement getProblemArgs() method.
+         var_dump('TODO: Implement getProblemArgs() method.');
     }
 
     /**
