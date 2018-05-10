@@ -10,6 +10,35 @@ namespace Project\Controller;
  */
 class SiteController {
 
+    protected const TWIGCACHE       = false;
+    protected const TEMPLATEPATHS   = ['./src/Resources', './src/Resources/views'];
+    protected const TWIGROOTPATH    = '';
+
+    /**
+     * @var \Twig_Environment
+     */
+    protected $twig;
+
+    public function __construct()
+    {
+        $loader = new \Twig_Loader_Filesystem($this::TEMPLATEPATHS, $this::TWIGROOTPATH);
+        $this->twig = new \Twig_Environment($loader, [
+            'cache' => $this::TWIGCACHE,
+        ]);
+    }
+
+    /**
+     * Show the index rendering
+     *
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function getIndex()
+    {
+        echo $this->twig->render('index.html.twig');
+    }
+
     /**
      * Show the content rendering.
      *
@@ -26,12 +55,7 @@ class SiteController {
         $problemActionName = $this->getMethodName($args['action']);
         $content = $this->getProblemContentArgs($problemClassName, $problemActionName, $args);
 
-        $loader = new \Twig_Loader_Filesystem('Project\Resources\views');
-        $twig = new \Twig_Environment($loader, [
-//            'cache' => __DIR__.'/tmp',
-            'cache' => false,
-        ]);
-        echo $twig->render($content['template'], $content['vars']);
+        echo $this->twig->render($content['template'], $content['vars']);
     }
 
     /**

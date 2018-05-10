@@ -24,5 +24,5 @@ if (isset($_POST['page'])) {
             break;
     }
 } else {
-    include 'src/Resources/layout.php';
+    $siteController->getIndex();
 }
