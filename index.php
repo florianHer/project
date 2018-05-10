@@ -1,10 +1,8 @@
 <?php
+require "vendor/autoload.php";
 
-namespace Project;
+use \Project\Controller\SiteController;
 
-use Project\Controller\SiteController;
-
-require 'src/Controller/SiteController.php';
 $siteController = new SiteController();
 
 // if post parameters are sent we get the good content else we get the homepage

@@ -2,16 +2,22 @@
 
 namespace Project\Problem;
 
-require 'iProblem.php';
-var_dump('OKOKOKOK');
 class Problem_1 implements iProblem
 {
     /**
      * @param $problemNumber
+     *
+     * @return array
      */
-    public function getProblemArgs($problemNumber): void
+    public function getProblemArgs($problemNumber): array
     {
-         var_dump('TODO: Implement getProblemArgs() method.');
+
+         return [
+             'template' => 'form.html.twig',
+             'vars'     => [
+                 'title' => 'Problem 1'
+             ],
+         ];
     }
 
     /**
