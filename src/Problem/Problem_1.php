@@ -2,7 +2,7 @@
 
 namespace Project\Problem;
 
-class Problem_1 implements iProblem
+class Problem_1 implements ProblemInterface
 {
     /**
      * @param $problemNumber
